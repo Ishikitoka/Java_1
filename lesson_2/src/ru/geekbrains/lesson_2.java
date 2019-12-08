@@ -3,14 +3,21 @@ import java.util.Arrays; // для вывода массива в качеств
 
 public class lesson_2 {
     public static void main(String[] args) {
-        int[] testarray = new int[] {1, 1, 0, 0, 1, 0, 1, 1, 0, 0 };
-        System.out.println("Заданный массив:\t\t" + Arrays.toString(testarray));
-        changenumber(testarray);
-        System.out.println("Обработанный массив:\t" + Arrays.toString(testarray));
+        int[] testArray = new int[] {1, 1, 0, 0, 1, 0, 1, 1, 0, 0 };
+        System.out.println("Заданный массив:\t\t" + Arrays.toString(testArray));
+        changeNumber(testArray);
+        System.out.println("Обработанный массив:\t" + Arrays.toString(testArray));
 
         int[] ascArr = new int[8];
         fillArrAsc(ascArr);
         System.out.println("Заполненный массив: " + Arrays.toString(ascArr));
+
+        testArray = new int[] {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        System.out.println("Заданный массив:\t\t" + Arrays.toString(testArray));
+        multArr(testArray);
+        System.out.println("Обработанный массив:\t" + Arrays.toString(testArray));
+
+        System.out.printf("Min: %d\nMax: %d", minNumber(testArray), maxNumber(testArray));
     }
 
     /**
@@ -18,7 +25,7 @@ public class lesson_2 {
      * Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ]. Написать метод,
      * заменяющий в принятом массиве 0 на 1, 1 на 0;
      */
-    private static void changenumber(int[] arr) {
+    private static void changeNumber(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = arr[i] == 1 ? 0 : 1;
         }
@@ -36,5 +43,41 @@ public class lesson_2 {
         }
     }
 
-}
+    /** 3 Задать массив
+     *[ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ],
+     * написать метод, принимающий на вход массив
+     * и умножающий числа меньше 6 на 2;
+     */
+    private static void multArr(int[] arr){
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] < 6){
+                arr[i] *= 2;
+            }
+        }
+    }
 
+    /**
+     * 4 Задать одномерный массив.
+     * Написать методы поиска в нём минимального
+     * и максимального элемента;
+     */
+    private static int minNumber(int[] arr){
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++){
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    private static int maxNumber(int[] arr){
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++){
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+}
