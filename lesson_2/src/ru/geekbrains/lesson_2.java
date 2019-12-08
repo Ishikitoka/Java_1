@@ -7,6 +7,10 @@ public class lesson_2 {
         System.out.println("Заданный массив:\t\t" + Arrays.toString(testarray));
         changenumber(testarray);
         System.out.println("Обработанный массив:\t" + Arrays.toString(testarray));
+
+        int[] ascArr = new int[8];
+        fillArrAsc(ascArr);
+        System.out.println("Заполненный массив: " + Arrays.toString(ascArr));
     }
 
     /**
@@ -17,6 +21,18 @@ public class lesson_2 {
     private static void changenumber(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = arr[i] == 1 ? 0 : 1;
+        }
+    }
+
+    /**
+     * 2 Задать пустой
+     * целочисленный массив размером 8.
+     * Написать метод, который помощью цикла
+     * заполнит его значениями 1 4 7 10 13 16 19 22;
+     */
+    private static void fillArrAsc(int[] arr){
+        for (int i = 0; i < arr.length; i++){
+            arr[i] = i * 3 + 1;
         }
     }
 
